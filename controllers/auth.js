@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const db =require('../models')
 const passport = require('../config/ppConfig.js')
-
+const axios = require('axios');
 
 router.get('/signup', (req, res)=> {
     res.render('auth/signup')
@@ -74,6 +74,10 @@ router.get('/logout', (req, res)=>{
     req.flash('success', 'Successfully logged out!') //flash comment 
     res.redirect('/')
 })
+
+
+
+
 
 
 module.exports=router
