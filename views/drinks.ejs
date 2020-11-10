@@ -1,6 +1,7 @@
 <h1> Results show Drinks </h1>
 
 <% drinks.forEach(function(drink){ %>
+
     
     <li>
         Drink:
@@ -11,21 +12,28 @@
         Glass:
         <%=drink.strGlass%>
         <br> Ingredients: 
-        <%=drink.strIngredient1%>,
-        <%=drink.strIngredient2%>,
-        <%=drink.strIngredient3%>,
-        <%=drink.strIngredient4%>,
-        <%=drink.strIngredient5%>,
-        <%=drink.strIngredient6%>,
+        <%=drink.strIngredient1,%>
+        <%=drink.strIngredient2,%>
+        <%=drink.strIngredient3,%>
+        <%=drink.strIngredient4,%>
+        <%=drink.strIngredient5,%>
+        <%=drink.strIngredient6,%>
        
+
         <br>
         Instructions:
         <%=drink.strInstructions%>
-
+        <br>
+        <br>
+        <form method="POST" action="/favorites"> 
+            <input type="hidden" name="name" value="<%=drink.strDrink%>">
+            <input type="hidden" name="ingredients" value="<%=drink.strIngredient1%>">
+            <input type="hidden" name="instructions" value="<%=drink.strInstructions%>">
+            <input type="hidden" name="picture" value="<%=drink.strDrinkThumb%>">
+            <input type="submit" value="Add to Favorities">
+        </form>
+        <br>
+        <br>
         <% }) %>
 
-    <form method="POST" action="/favorites"> 
-        <input hidden type="text" name="name" value="">
-        <input type="submit" value="Add to Favorities">
-    </form>
 </li>

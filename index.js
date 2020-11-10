@@ -58,7 +58,64 @@ app.get('/', (req, res)=>{
 })
 app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
+    res.redirect('drinks')
 })
+
+
+
+
+app.post('/favorites', (req, res) => {
+  console.log(req.body)
+  db.drink.findOrCreate({
+    where:{
+      name: req.body.name 
+    }, 
+    defaults:{
+      ingredients:req.body.ingredients,
+      instructions:req.body.instructions,
+      picture:req.body.picture
+    }
+  })
+  .then(([drink, created])=>{
+    console.log(drink)
+    drink.addUser(req.user)
+    .then(relationInfo=>{
+      console.log(`${req.user.name} added to ${drink.name}`)
+      res.redirect('/favorites')
+    })
+  }) 
+  .catch((error) => {
+    console.log(error)
+ })
+})
+
+
+
+app.get('/favorites', (req, res)=> {
+  db.drink.findAll()
+  .then(drink=>{
+res.render('favorites', {drink: drink,})
+  })
+  // TODO: Get all records from the DB and render to view
+  //res.send('Render a page of favorites here');
+});
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // app.get('/drinks', (req, res)=>{
 //     let drinksName = req.query.drinksName
@@ -86,25 +143,57 @@ app.get('/profile', isLoggedIn, (req, res)=>{
 // })
 
 //home route -> form to input drink 
-app.get('/', (req, res)=>{
-    res.render('home page')
-})
-
-// //drinks results from the search page
-// app.get('/drinks', (req, res)=>{
-//     let drinkTitle = req.query.drinkTitle
-//     axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkTitle}`)
-//     .then (response=>{
-//         console.log(response.data)
-//         //res.send(response.data.drinks)
-//     res.render('drinks', {drinks: response.data.drinks})
+// app.get('/', (req, res)=>{
+//     res.render('home page')
 // })
 
-// //show info about one particular drink
-// app.get('/drinks/:drinkId', (req, res)=>{
-//     res.render('show', {drinkId: req.params.drinkId})
-// })
 
+// app.post('/favorites', (req, res)=>{
+//     console.log(req.body.name)
+//     db.drink.findOrCreate({
+        
+//       where: {name: req.body.name},
+      
+      
+//     })
+//     .then(([createddrink, wasCreated ]) =>{
+//       res.redirect('/favorites')
+//     })
+//     .catch(err =>{
+//         console.log(err)
+//     //res.send(req.body)
+//   })
+// })
+  
+
+
+app.get('/favorites', (req, res)=> {
+    db.drink.findAll()
+    .then(drink=>{
+  res.render('favorites', {drink: drink,})
+    })
+    // TODO: Get all records from the DB and render to view
+    //res.send('Render a page of favorites here');
+  });
+
+
+//   app.get('/favorites', function(req, res) {
+//     // TODO: Get all records from the DB and render to view
+//     db.drink.findAll()
+//     .then(favorites =>{
+//       // favorites.forEach(favoriteChar=>{
+//       //    console.log(favoriteChar.image)  
+//       //      console.log(favoriteChar.name)
+//       // })
+//       console.log(favorites)
+//         res.render('favorites', {favorites: favorites})
+//     //   res.render('faves')
+//       // res.send('Render a page of favorites here');
+//     })
+//     .catch((error) => {
+//       console.log(error)
+//     }) 
+//   })
 
 
 

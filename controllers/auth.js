@@ -55,12 +55,12 @@ router.get('/login', (req, res)=> {
     res.render('auth/login')
 })
 
-router.post('/login', (req, res)=> {
-    //res.send('post to auth/login')
-    console.log('Trying to log in')
-    //redirect to home route 
-    res.redirect('/')
-})
+// router.post('/login', (req, res)=> {
+//     //res.send('post to auth/login')
+//     console.log('Trying to log in')
+//     //redirect to home route 
+//     res.redirect('/')
+// })
 
 router.post('/login', passport.authenticate('local', {
     failureRedirect: '/auth/login', 

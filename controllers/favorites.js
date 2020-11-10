@@ -5,18 +5,16 @@ const passport = require('../config/ppConfig.js')
 const axios = require('axios');
 
 
+// router.get('/favorites', function(req, res) {
+//     db.drink.findAll()
+//     .then(drink=>{
+//   res.render('index', {drink: drink, showButton: false})
+//     })
+// })
 
 
 
 
-app.post('/', (req, res)=>{
-    console.log("Form data:", req.body)
-    db.favorites.create(req.body)
-    .then(createdFavorties =>{  
-        res.redirect('/favorites')
-
-    })
-})
 
 
 

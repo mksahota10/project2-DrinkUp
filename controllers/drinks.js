@@ -14,7 +14,7 @@ router.get('/', (req, res)=>{
     .then (response=>{
         console.log(response.data)
         //res.send(response.data.drinks)
-    res.render('drinks', {drinks: response.data.drinks, showButton: true})
+    res.render('drinks', {drinks: response.data.drinks })
 })
 })
 
