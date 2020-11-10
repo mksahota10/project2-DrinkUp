@@ -6,6 +6,7 @@ const passport = require('./config/ppConfig.js')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
 const axios = require('axios')
+const db = require ('./models')
 
 
 //setup ejs and ejs layouts
@@ -43,6 +44,7 @@ app.use((req, res, next)=>{
 
 //controllers midware. This is what allows us to use the controllers routes
 app.use('/auth', require('./controllers/auth.js'))
+app.use('/drinks', require('./controllers/drinks.js'))
 //app.use('/drinks', require('./controllers/drinks.js'))
 
 
@@ -88,31 +90,24 @@ app.get('/', (req, res)=>{
     res.render('home page')
 })
 
-//drinks results from the search page
-app.get('/drinks', (req, res)=>{
-    let drinkTitle = req.query.drinkTitle
-    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkTitle}`)
-    .then (response=>{
-        console.log(response.data)
-        //res.send(response.data.drinks)
-    res.render('drinks', {drinks: response.data.drinks})
-})
+// //drinks results from the search page
+// app.get('/drinks', (req, res)=>{
+//     let drinkTitle = req.query.drinkTitle
+//     axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkTitle}`)
+//     .then (response=>{
+//         console.log(response.data)
+//         //res.send(response.data.drinks)
+//     res.render('drinks', {drinks: response.data.drinks})
+// })
 
 // //show info about one particular drink
 // app.get('/drinks/:drinkId', (req, res)=>{
 //     res.render('show', {drinkId: req.params.drinkId})
 // })
-})
 
 
-app.post('/favorites', (req, res)=>{
-    console.log("Form data:", req.body)
-    db.favorites.create(req.body)
-    .then(createdFavorties =>{  
-        res.redirect('/favorites')
 
-    })
-})
+
 
 app.listen(8003, ()=>{
     console.log('youre now in port 8003')
