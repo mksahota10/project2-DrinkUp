@@ -4,10 +4,17 @@
 
     <p>
             <%=drink.name%>
+            <br>
             <%=drink.ingredients%>
+            <br>
             <%=drink.instructions%>
+            <br>
            <img src="<%=drink.picture%>"width="300">
-            <input type="submit" value="Delete">
+           <br>
+           <form method="POST" action="/favorites/<%=drink.id%>/?_method=DELETE">
+                <input id="delete" type="submit" value="Delete">
+            </form>
+            
         
         </p>
         <%})%>

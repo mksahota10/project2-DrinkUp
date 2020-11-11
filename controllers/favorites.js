@@ -61,25 +61,19 @@ router.post('/', (req, res) => {
     });
 
 
-
-
-//   router.get('/', (req, res)=> {
-//     console.log("###############################################😞")
-//       console.log(req.session)
-//   db.userdrinks.findAll({
-//     where:{
-//         userId: req.session.passport.user
-//       },
-//     })
-//   .then(drinks=>{
-//     console.log("###############################################😞")
-//     console.log(drinks)
-// res.render('favorites', {drinks: drinks,})
-// //console.log(drink)
-//   })
-//   // TODO: Get all records from the DB and render to view
-//   //res.send('Render a page of favorites here');
-// });
+//Delete a drink frommy Drink (favorites)
+router.delete('/:id', (req, res)=>{
+  db.drink.destroy({
+    where: {id:req.params.id}
+  })
+  .then(numRowsDeleted=>{
+    console.log(numRowsDeleted)
+    res.redirect('/favorites')
+  })
+  .catch(err=>{
+    res.send(err)
+  })
+})
 
 
 
