@@ -1,19 +1,17 @@
  <h1>My Favorite Drinks</h1>
 
+ <% drinks.forEach(function(drink){ %>
 
-
- <br>
-        <form method="POST" action="/favorites"> 
-            <input type="hidden" name="name" value="<%=drink.strDrink%>">
-            <input type="hidden" name="ingredients" value="<%=drink.strIngredient1%>">
-            <input type="hidden" name="instructions" value="<%=drink.strInstructions%>">
-            <input type="hidden" name="picture" value="<%=drink.strDrinkThumb%>">
+    <p>
+        
+            <%=drink.name%>
+            <%=drink.ingredients%>
+            <%=drink.instructions%>
+            <%=drink.picture%>
             <input type="submit" value="Delete">
             <input type="submit" value="Update">
-            <LABEL for="comment">Text: </LABEL>
-          <TEXTAREA type="text" id="comment">Comment:</TEXTAREA></td>
-
-        </form>
+        </p>
+        <%})%>
         <br>
 
     

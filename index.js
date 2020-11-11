@@ -7,12 +7,14 @@ const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
 const axios = require('axios')
 const db = require ('./models')
+const methodOverride = require('method-override')
+
 
 
 //setup ejs and ejs layouts
 app.set('view engine', 'ejs')
 app.use(ejsLayouts) 
-
+app.use(methodOverride('_method'))
 
 //body parser midleware  (this makes req.body work)
 app.use(express.urlencoded({extended:false}))
@@ -45,7 +47,7 @@ app.use((req, res, next)=>{
 //controllers midware. This is what allows us to use the controllers routes
 app.use('/auth', require('./controllers/auth.js'))
 app.use('/drinks', require('./controllers/drinks.js'))
-//app.use('/drinks', require('./controllers/drinks.js'))
+app.use('/favorites', require('./controllers/favorites.js'))
 
 
 app.get('/', (req, res)=>{
@@ -64,41 +66,11 @@ app.get('/profile', isLoggedIn, (req, res)=>{
 
 
 
-app.post('/favorites', (req, res) => {
-  console.log(req.body)
-  db.drink.findOrCreate({
-    where:{
-      name: req.body.name 
-    }, 
-    defaults:{
-      ingredients:req.body.ingredients,
-      instructions:req.body.instructions,
-      picture:req.body.picture
-    }
-  })
-  .then(([drink, created])=>{
-    console.log(drink)
-    drink.addUser(req.user)
-    .then(relationInfo=>{
-      console.log(`${req.user.name} added to ${drink.name}`)
-      res.redirect('/favorites')
-    })
-  }) 
-  .catch((error) => {
-    console.log(error)
- })
-})
 
 
 
-app.get('/favorites', (req, res)=> {
-  db.drink.findAll()
-  .then(drink=>{
-res.render('favorites', {drink: drink,})
-  })
-  // TODO: Get all records from the DB and render to view
-  //res.send('Render a page of favorites here');
-});
+
+
   
   
 
@@ -167,14 +139,14 @@ res.render('favorites', {drink: drink,})
   
 
 
-app.get('/favorites', (req, res)=> {
-    db.drink.findAll()
-    .then(drink=>{
-  res.render('favorites', {drink: drink,})
-    })
-    // TODO: Get all records from the DB and render to view
-    //res.send('Render a page of favorites here');
-  });
+// app.get('/favorites', (req, res)=> {
+//     db.drink.findAll()
+//     .then(drink=>{
+//   res.render('favorites', {drink: drink,})
+//     })
+//     // TODO: Get all records from the DB and render to view
+//     //res.send('Render a page of favorites here');
+//   });
 
 
 //   app.get('/favorites', function(req, res) {
@@ -198,8 +170,8 @@ app.get('/favorites', (req, res)=> {
 
 
 
-app.listen(8003, ()=>{
-    console.log('youre now in port 8003')
+app.listen(8000, ()=>{
+    console.log('youre now in port 8000')
 })
 
 
