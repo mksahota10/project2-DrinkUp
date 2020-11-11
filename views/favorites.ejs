@@ -1,15 +1,14 @@
  <h1>My Favorite Drinks</h1>
 
- <% drinks.forEach(function(drink){ %>
+ <% faveDrinks.forEach(function(drink){ %>
 
     <p>
-        
             <%=drink.name%>
             <%=drink.ingredients%>
             <%=drink.instructions%>
-            <%=drink.picture%>
+           <img src="<%=drink.picture%>"width="300">
             <input type="submit" value="Delete">
-            <input type="submit" value="Update">
+        
         </p>
         <%})%>
         <br>

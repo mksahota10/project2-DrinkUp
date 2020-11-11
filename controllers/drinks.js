@@ -13,8 +13,8 @@ router.get('/', (req, res)=>{
     axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkTitle}`)
     .then (response=>{
         console.log(response.data)
-        //res.send(response.data.drinks)
-    res.render('drinks', {drinks: response.data.drinks })
+        res.send(response.data.drinks)
+    //res.render('drinks', {drinks: response.data.drinks })
 })
 })
 

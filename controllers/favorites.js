@@ -43,22 +43,43 @@ router.post('/', (req, res) => {
    })
   })
 
-  router.get('/', (req, res)=> {
-    console.log("###############################################😞")
-      console.log(req.session)
-  db.userdrinks.findAll({
-    where:{
-        userId: req.session.passport.user
-      },
-    })
-  .then(drinks=>{
-    console.log(drinks)
-res.render('favorites', {drinks: drinks,})
-//console.log(drink)
-  })
-  // TODO: Get all records from the DB and render to view
-  //res.send('Render a page of favorites here');
-});
+    router.get('/', (req, res)=> {
+        console.log("###############################################😞")
+          console.log(req.session)
+      db.user.findOne({
+        where:{id: req.user.id},
+        include:[db.drink]
+        })
+      .then(foundUser=>{
+        console.log("###############################################😞")
+      
+    res.render('favorites', {faveDrinks: foundUser.drinks})
+    //console.log(drink)
+      })
+      // TODO: Get all records from the DB and render to view
+      //res.send('Render a page of favorites here');
+    });
+
+
+
+
+//   router.get('/', (req, res)=> {
+//     console.log("###############################################😞")
+//       console.log(req.session)
+//   db.userdrinks.findAll({
+//     where:{
+//         userId: req.session.passport.user
+//       },
+//     })
+//   .then(drinks=>{
+//     console.log("###############################################😞")
+//     console.log(drinks)
+// res.render('favorites', {drinks: drinks,})
+// //console.log(drink)
+//   })
+//   // TODO: Get all records from the DB and render to view
+//   //res.send('Render a page of favorites here');
+// });
 
 
 
