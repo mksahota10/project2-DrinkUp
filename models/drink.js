@@ -12,13 +12,14 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.drink.belongsToMany(models.user, {through: 'userdrinks'})
+
     }
   };
   drink.init({
     name: DataTypes.STRING,
     ingredients: DataTypes.STRING,
     instructions: DataTypes.TEXT,
-    picture: DataTypes.STRING
+    picture: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'drink',

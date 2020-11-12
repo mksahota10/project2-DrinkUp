@@ -6,25 +6,16 @@ const axios = require('axios');
 
 
 
-// router.get('/favorites', function(req, res) {
-//     db.drink.findAll()
-//     .then(drink=>{
-//   res.render('index', {drink: drink, showButton: false})
-//     })
-// })
-
-
+// route to post data to favorites page 
 router.post('/', (req, res) => {
     console.log(req.body)
     db.drink.findOrCreate({
       where:{
-        name: req.body.name 
-      }, 
-      defaults:{
+        name: req.body.name,
         ingredients:req.body.ingredients,
         instructions:req.body.instructions,
         picture:req.body.picture
-      }
+      },
     })
     .then(([drink, created])=>{
       console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
@@ -42,7 +33,7 @@ router.post('/', (req, res) => {
       console.log(error)
    })
   })
-
+//route to find drink associated with user
     router.get('/', (req, res)=> {
         console.log("###############################################😞")
           console.log(req.session)
@@ -56,14 +47,13 @@ router.post('/', (req, res) => {
     res.render('favorites', {faveDrinks: foundUser.drinks})
     //console.log(drink)
       })
-      // TODO: Get all records from the DB and render to view
-      //res.send('Render a page of favorites here');
+     
     });
 
 
 //Delete a drink frommy Drink (favorites)
 router.delete('/:id', (req, res)=>{
-  db.drink.destroy({
+  db.drink.destroy ({
     where: {id:req.params.id}
   })
   .then(numRowsDeleted=>{
@@ -75,6 +65,29 @@ router.delete('/:id', (req, res)=>{
   })
 })
 
+router.put('/:id', (req, res)=>{
+  db.userdrink.update(
+    {comment: req.body.comment},
+    {where: {userId:req.user.id, drinkId:req.params.id}
+}).then(newComment=>{
+    console.log(newComment)
+    newComment.addUser(req.user)
+    res.redirect('/')
+}).catch(err=>{
+  res.send(err)
+})
+})
+
+router.get('/:id', (req,res)=>{
+  db.userDrink.findAll({
+    where:{userId: req.userid, 
+      drinkId:req.params.id},
+  })
+  .then(foundComment=>{
+    console.log('my comment', foundComment.dataValues)
+    res.render('favorites', {foundComment: foundComment.datatypes})
+  })
+})
 
 
 

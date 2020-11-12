@@ -3,21 +3,36 @@
  <% faveDrinks.forEach(function(drink){ %>
 
     <p>
+            Drink:
             <%=drink.name%>
             <br>
+            Ingredients:
             <%=drink.ingredients%>
+           
+
             <br>
+            Instructions:
             <%=drink.instructions%>
             <br>
            <img src="<%=drink.picture%>"width="300">
            <br>
+           <form method="PUT" action="/favorites/?_method=PUT">
+           <div class="form-group">
+            <label for="description">Review</label>
+            <textarea type="text" class="form-control" id="category" name="category" required></textarea>
+            <input id="delete" type="submit" value="Post Comment">
+          </form>
+          </div>
            <form method="POST" action="/favorites/<%=drink.id%>/?_method=DELETE">
                 <input id="delete" type="submit" value="Delete">
             </form>
             
-        
+           
         </p>
         <%})%>
+        <a href="http://localhost:8080/">
+            <button>Find more</button>
+          </a>
         <br>
 
     
