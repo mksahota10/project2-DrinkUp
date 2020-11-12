@@ -49,6 +49,7 @@ app.use((req, res, next)=>{
 app.use('/auth', require('./controllers/auth.js'))
 app.use('/drinks', require('./controllers/drinks.js'))
 app.use('/favorites', require('./controllers/favorites.js'))
+app.use('/comments', require('./controllers/comments.js'))
 
 
 app.get('/', (req, res)=>{

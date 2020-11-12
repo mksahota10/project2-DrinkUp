@@ -16,13 +16,12 @@
             <br>
            <img src="<%=drink.picture%>"width="300">
            <br>
-           <form method="PUT" action="/favorites/?_method=PUT">
-           <div class="form-group">
+           <form method="POST" action="/favorites/<%=drink.id%>/?_method=PUT">
             <label for="description">Review</label>
-            <textarea type="text" class="form-control" id="category" name="category" required></textarea>
-            <input id="delete" type="submit" value="Post Comment">
+            <textarea id="comment" type="text" name="comment"></textarea>
+           <button id="button" type="submit">Submit</button>
           </form>
-          </div>
+    
            <form method="POST" action="/favorites/<%=drink.id%>/?_method=DELETE">
                 <input id="delete" type="submit" value="Delete">
             </form>

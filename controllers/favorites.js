@@ -45,6 +45,7 @@ router.post('/', (req, res) => {
         console.log("###############################################😞")
       
     res.render('favorites', {faveDrinks: foundUser.drinks})
+    console.log(foundUser.drinks)
     //console.log(drink)
       })
      
@@ -66,28 +67,30 @@ router.delete('/:id', (req, res)=>{
 })
 
 router.put('/:id', (req, res)=>{
-  db.userdrink.update(
+  console.log('😭😭', req.params)
+  console.log('😭😭', req.user.id)
+  db.userdrinks.update(
     {comment: req.body.comment},
     {where: {userId:req.user.id, drinkId:req.params.id}
 }).then(newComment=>{
-    console.log(newComment)
-    newComment.addUser(req.user)
-    res.redirect('/')
+    console.log('This is my comment', newComment)
+    // newComment.
+    res.redirect(`/comments/ ${req.params.id}`)
 }).catch(err=>{
   res.send(err)
 })
 })
 
-router.get('/:id', (req,res)=>{
-  db.userDrink.findAll({
-    where:{userId: req.userid, 
-      drinkId:req.params.id},
-  })
-  .then(foundComment=>{
-    console.log('my comment', foundComment.dataValues)
-    res.render('favorites', {foundComment: foundComment.datatypes})
-  })
-})
+// router.get('/:id', (req, res)=>{
+//   db.userdrinks.findAll({
+//     where:{userId: req.userid, 
+//       drinkId:req.params.id},
+//   })
+//   .then(foundComment=>{
+//     console.log('my comment', foundComment)
+//     res.render('favorites', {foundComment: foundComment.dataValues})
+//   })
+// })
 
 
 
