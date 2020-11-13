@@ -1,0 +1,53 @@
+body {
+    background-image: url("https://wallpaperaccess.com/full/235919.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    align-items: center;
+    text-align:center;
+    width:100vw;
+    color:white;
+
+   }
+   #login{
+    font-size: 30px;
+    background: -webkit-linear-gradient(#eee, rgb(243, 31, 31));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Chalkduster, fantasy;
+
+   }
+   #logindetails{
+       color:white;
+       align-items: center;
+   }
+   a{
+       color:white;
+   }
+   #signuppage{
+       text-align: left;
+       margin-left: 1200px;
+   }
+   #title{
+    font-family: Chalkduster, fantasy;
+    font-size:55px;
+    margin-top:150px;
+   }
+   #question{
+
+
+   }
+   #fav{
+       font-family: fantasy;
+   }
+   #ingredients{
+
+     margin: 0 auto;
+  max-width: 300px;
+  border: solid 2px #ccc;
+  padding: 12px;
+
+   }

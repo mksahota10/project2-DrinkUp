@@ -81,16 +81,7 @@ router.put('/:id', (req, res)=>{
 })
 })
 
-// router.get('/:id', (req, res)=>{
-//   db.userdrinks.findAll({
-//     where:{userId: req.userid, 
-//       drinkId:req.params.id},
-//   })
-//   .then(foundComment=>{
-//     console.log('my comment', foundComment)
-//     res.render('favorites', {foundComment: foundComment.dataValues})
-//   })
-// })
+
 
 
 

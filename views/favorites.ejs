@@ -1,16 +1,18 @@
- <h1>My Favorite Drinks</h1>
+ <h1 id="fav">My Favorite Drinks</h1>
 
  <% faveDrinks.forEach(function(drink){ %>
 
-    <p>
-            Drink:
+    <p  id="ingredients">
+             Drink:
             <%=drink.name%>
-            <br>
-            Ingredients:
+            
+           
+            <b>Ingredients:</b>
             <%=drink.ingredients%>
            
 
             <br>
+
             Instructions:
             <%=drink.instructions%>
             <br>
@@ -19,9 +21,10 @@
            <form method="POST" action="/favorites/<%=drink.id%>/?_method=PUT">
             <label for="description">Review</label>
             <textarea id="comment" type="text" name="comment"></textarea>
-           <button id="button" type="submit">Submit</button>
+            <button id="button" type="submit">Submit</button>
           </form>
-    
+          <br>
+        </p>
            <form method="POST" action="/favorites/<%=drink.id%>/?_method=DELETE">
                 <input id="delete" type="submit" value="Delete">
             </form>
