@@ -49,7 +49,7 @@ router.get("/", (req, res) => {
     });
 });
 
-//Delete a drink frommy Drink (favorites)
+//Delete a drink from my Drink (favorites)
 router.delete("/:id", (req, res) => {
   db.drink
     .destroy({
@@ -64,6 +64,7 @@ router.delete("/:id", (req, res) => {
     });
 });
 
+//route to post comments
 router.put("/:id", (req, res) => {
   console.log("😭😭", req.params);
   console.log("😭😭", req.user.id);
