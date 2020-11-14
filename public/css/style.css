@@ -48,3 +48,10 @@ body {
   border: solid 5px #ccc;
   padding: 12px;
 }
+#drink{
+  margin: 0 auto;
+  max-width: 300px;
+  border: solid 5px #ccc;
+  padding: 12px;
+
+}
