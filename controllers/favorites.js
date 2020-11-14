@@ -76,7 +76,7 @@ router.put("/:id", (req, res) => {
     .then((newComment) => {
       console.log("This is my comment", newComment);
       // newComment.
-      res.redirect(`/comments/ ${req.params.id}`);
+      res.redirect(`/comments/${req.params.id}`);
     })
     .catch((err) => {
       res.send(err);
