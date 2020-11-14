@@ -10,44 +10,41 @@ body {
     text-align:center;
     width:100vw;
     color:white;
-
    }
    #login{
     font-size: 30px;
-    background: -webkit-linear-gradient(#eee, rgb(243, 31, 31));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    
     font-family: Chalkduster, fantasy;
 
    }
    #logindetails{
-       color:white;
-       align-items: center;
+    color:white;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 300px;
+    border: solid 5px #ccc;
+    padding: 12px;
+    text-align:center;
    }
    a{
        color:white;
    }
    #signuppage{
-       text-align: left;
-       margin-left: 1200px;
+    text-align: left;
+    margin-left: 1200px;
    }
    #title{
     font-family: Chalkduster, fantasy;
     font-size:55px;
     margin-top:150px;
    }
-   #question{
-
-
-   }
+   
    #fav{
-       font-family: fantasy;
+    font-family: fantasy;
    }
    #ingredients{
-
-     margin: 0 auto;
+  margin: 0 auto;
   max-width: 300px;
-  border: solid 2px #ccc;
+  border: solid 5px #ccc;
   padding: 12px;
-
-   }
+}

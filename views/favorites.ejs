@@ -1,39 +1,41 @@
  <h1 id="fav">My Favorite Drinks</h1>
 
- <% faveDrinks.forEach(function(drink){ %>
+ <%faveDrinks.forEach(function(drink){ %>
 
     <p  id="ingredients">
-             Drink:
-            <%=drink.name%>
-            
-           
-            <b>Ingredients:</b>
-            <%=drink.ingredients%>
-           
-
-            <br>
-
-            Instructions:
-            <%=drink.instructions%>
-            <br>
-           <img src="<%=drink.picture%>"width="300">
-           <br>
-           <form method="POST" action="/favorites/<%=drink.id%>/?_method=PUT">
-            <label for="description">Review</label>
-            <textarea id="comment" type="text" name="comment"></textarea>
-            <button id="button" type="submit">Submit</button>
-          </form>
+          <b>Drink:</b>
+          <%=drink.name%>
           <br>
-        </p>
-           <form method="POST" action="/favorites/<%=drink.id%>/?_method=DELETE">
-                <input id="delete" type="submit" value="Delete">
+          <br>
+          <b>What you need:</b>
+          <%=drink.ingredients%>
+           <br>
+           <br>
+           <br>
+
+          <b>How to make:</b> 
+          <%=drink.instructions%>
+          <br>
+          <br>
+          <img src="<%=drink.picture%>"width="300">
+          </p>
+          <br>
+          <form method="POST" action="/favorites/<%=drink.id%>/?_method=PUT">
+          <label for="description">Review</label>
+          <br>
+          <textarea id="comment" type="text" name="comment"></textarea>
+          <br>
+          <button id="button" type="submit">Submit</button>
+          <form method="POST" action="/favorites/<%=drink.id%>/?_method=DELETE">
+          <br>
+          <input id="delete" type="submit" value="Delete">
             </form>
             
            
         </p>
         <%})%>
         <a href="http://localhost:8080/">
-            <button>Find more</button>
+            <button>Find More Drinks</button>
           </a>
         <br>
 
