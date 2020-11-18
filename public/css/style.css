@@ -1,5 +1,5 @@
 body {
-    background-image: url("https://wallpaperaccess.com/full/235919.jpg");
+    background-image: url("https://cdn.hipwallpaper.com/i/4/97/LmtFh9.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -9,8 +9,12 @@ body {
     align-items: center;
     text-align:center;
     width:100vw;
-    color:white;
+    color:black;
+    backdrop-filter: blur(5px);
    }
+
+   
+
    #login{
     font-size: 30px;
     
@@ -18,16 +22,16 @@ body {
 
    }
    #logindetails{
-    color:white;
+    color:black;
     align-items: center;
     margin: 0 auto;
     max-width: 300px;
-    border: solid 5px #ccc;
+    border: solid 5px black;
     padding: 12px;
     text-align:center;
    }
    a{
-       color:white;
+       color:black;
    }
    #signuppage{
     text-align: left;
@@ -45,18 +49,18 @@ body {
    #ingredients{
   margin: 0 auto;
   max-width: 300px;
-  border: solid 5px #ccc;
+  border: solid 5px black;
   padding: 12px;
 }
 #drink{
   margin: 0 auto;
   max-width: 300px;
-  border: solid 5px #ccc;
+  border: solid 5px black;
   padding: 12px;
 
 }
 button{
-  color: white; 
-  border: 2px, solid white; 
+  color:white; 
+  border: 2px, solid black; 
   background-color: black; 
 }

@@ -20,7 +20,7 @@ router.post("/", (req, res) => {
       console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
       drink.addUser(req.user).then((relationInfo) => {
         console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-        console.log(`${req.user.name} added to ${drink.name}`);
+        //console.log(`${req.user.name} added to ${drink.name}`);
         console.log(relationInfo);
         // res.render('/favorites'{})
         //res.render('favorites', {name:drink.name, ingredients:drink.ingredients, instructions:drink.instructions, picture: drink.picture})
