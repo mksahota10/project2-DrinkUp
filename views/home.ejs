@@ -1,14 +1,19 @@
  <p id="title">Drink Up</p>
+ <br>
+ <br>
 
  <div id="question"> What's your favorite Drink?!</div>
 
-
+<br>
+<br>
 
 <form method="GET" action="/drinks"> 
-    <label for="titleFilter"><b>Type Below:</b> </label> 
+    <p class="type"> <label for="titleFilter"><b>Type Below:</b> </label> </p>
+    
+    <p class="input"> <input type="text" id="titleFilter" name="drinkTitle"> </p>
     <br>
-    <input type="text" id="titleFilter" name="drinkTitle">
-    <br>
-    <input type="submit" value="search">
+    <div class="sub-main">
+        <button class="button-three">Search</p> 
 </form>
+
 </div>

@@ -1,3 +1,6 @@
+Heroku App Link: https://drinkitup.herokuapp.com/
+
+
 Steps for Setting Up:
 
 Fork and clone this repository
