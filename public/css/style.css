@@ -81,7 +81,7 @@ body {
 .button-three {
   font-family: Chalkduster, fantasy;
   position: relative;
-  background-color: rgb(150, 240, 66);
+  background-color: #4CAF50;
   border: none;
   padding: 0px;
   width: 100px;
@@ -100,7 +100,7 @@ body {
 
 .button-three:after {
   content: "";
-  background: rgb(150, 240, 66);
+  background: #4CAF50;
   display: block;
   position: absolute;
   padding-top: 0;
@@ -117,4 +117,41 @@ body {
   opacity: 1;
   transition: 0s
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #4CAF50;
+  width: 100px;
+  height:100px;
+}
+
+li {
+  float: left;
+  border-right:0px solid #4CAF50;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-family: Chalkduster, fantasy;
+}
+
+h2{
+  font-family: Chalkduster, fantasy;
+}
+
+
+
+
+
 

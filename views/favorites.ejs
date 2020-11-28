@@ -26,7 +26,7 @@
           <textarea id="comment" type="text" name="comment"></textarea>
           <br>
           <button id="button" type="submit">Submit</button>
-          <a id="seeComments" href="/comments/<%=drink.id%>"> See Reviews</a>
+          <a id="seeComments" href="/comments/<%=drink.id%>"> See Notes</a>
           </form>
           <form method="POST" action="/favorites/<%=drink.id%>/?_method=DELETE">
           <br>
@@ -37,7 +37,8 @@
         </p>
         <%})%>
         <a href="http://localhost:8080/">
-            <button>Find More Drinks</button>
+          <div class="sub-main">
+            <button class="button-three">Find More Drinks</p> 
           </a>
         <br>
 
