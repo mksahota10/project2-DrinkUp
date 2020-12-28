@@ -12,12 +12,16 @@
        
         <nav id="signuppage">
             <ul>
+                 
                 <% if (!currentUser) { %>
-                <li><a  href="/auth/signup">Sign-up</a></li>
-                <li><a href="/auth/login">Log-in</a></li>
+                <a class="button-three" href="/auth/signup">Sign-up</a>
+                
+                <a class="button-three" href="/auth/login"> Log-in </a>
                 <% } else { %>
-                <li><a href="/auth/logout">Logout</a></li>
-                <li><a href="/profile">Profile</a></li>
+                <a  class="button-three"href="/"> Home</a>
+                <a  class="button-three"href="/profile">Profile</a>
+                <a  class="button-three"href="/favorites"> My Favorites</a>
+                <a class="button-three" href="/auth/logout">Logout</a>
                 <% } %>
             </ul>
         </nav>

@@ -11,6 +11,7 @@
           <%=drink.ingredients%>
            <br>
            <br>
+           
            <br>
 
           <b>How to make:</b> 
@@ -21,16 +22,22 @@
           </p>
           <br>
           <form method="POST" action="/favorites/<%=drink.id%>/?_method=PUT">
-          <label for="description">Review</label>
+          <label for="description" id="review">Review</label>
           <br>
           <textarea id="comment" type="text" name="comment"></textarea>
           <br>
-          <button id="button" type="submit">Submit</button>
-          <a id="seeComments" href="/comments/<%=drink.id%>"> See Notes</a>
+          <button id="button" class="button-three" type="submit">ADD NOTE</button>
+          <br>
+          <br>
+          <a id="seeComments" class="button-three" href="/comments/<%=drink.id%>"> SEE NOTE</a>
+          <br>
+          <br>
           </form>
           <form method="POST" action="/favorites/<%=drink.id%>/?_method=DELETE">
-          <br>
-          <input id="delete" type="submit" value="Delete">
+            <input id="delete" type="submit" class="button-three" value="DELETE">
+          <!-- <button id="delete" type="submit" >DELETE</button> -->
+
+        <!-- <input type="hidden" value="<%=drink.id%>"> -->
             </form>
             
            

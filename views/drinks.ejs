@@ -3,7 +3,7 @@
 <% drinks.forEach(function(drink){ %>
 
 
-    <li>
+    
 <div id="drink">
         Drink:
         <%=drink.strDrink%>
@@ -30,15 +30,15 @@
             <input type="hidden" name="ingredients" value="<%=drink.strIngredients%>">
             <input type="hidden" name="instructions" value="<%=drink.strInstructions%>">
             <input type="hidden" name="picture" value="<%=drink.strDrinkThumb%>">
-            
-            <input type="submit" value="Add to Favorities">
+            <!-- <input type="hidden" > -->
+            <input type="submit" class="button-three" value="Add to Favorities">
         </form>
         <br>
         <br>
 
         <% }) %>
         
-</li>
+
 
 <a href="http://localhost:8080/">
     <div class="sub-main">

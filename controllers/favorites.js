@@ -3,37 +3,37 @@ const router = express.Router();
 const db = require("../models");
 const passport = require("../config/ppConfig.js");
 const axios = require("axios");
+const isLoggedIn = require('../middleware/isLoggedIn')
 
 // route to post data to favorites page
-router.post("/", (req, res) => {
+router.post("/", isLoggedIn, (req, res) => {
   console.log(req.body);
-  db.drink
-    .findOrCreate({
-      where: {
-        name: req.body.name,
-        ingredients: req.body.ingredients,
-        instructions: req.body.instructions,
-        picture: req.body.picture,
+  db.drink.findOrCreate({
+      where: {name: req.body.name, ingredients: req.body.ingredients, instructions: req.body.instructions, picture: req.body.picture,
       },
+      include: [db.user],
     })
-    .then(([drink, created]) => {
-      console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-      drink.addUser(req.user).then((relationInfo) => {
-        console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-        //console.log(`${req.user.name} added to ${drink.name}`);
-        console.log(relationInfo);
-        // res.render('/favorites'{})
-        //res.render('favorites', {name:drink.name, ingredients:drink.ingredients, instructions:drink.instructions, picture: drink.picture})
-        res.redirect("/favorites");
-      });
+    .then(([foundOrCreatedDrink, created]) => {
+      foundOrCreatedDrink.addUser(req.user)
+      .then(createdRelation=>{
+        res.redirect('/favorites')
+      })
     })
-    .catch((error) => {
-      console.log(error);
-    });
-});
+  })
+    //   drink.addUser(req.user).then((relationInfo) => {
+    //     console.log(relationInfo);
+    //     // res.render('/favorites'{})
+    //     //res.render('favorites', {name:drink.name, ingredients:drink.ingredients, instructions:drink.instructions, picture: drink.picture})
+    //     res.redirect("/favorites");
+    //   });
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    // });
+
 //route to find drink associated with user
-router.get("/", (req, res) => {
-  console.log("###############################################😞");
+router.get("/",isLoggedIn, (req, res) => {
+  
   console.log(req.session);
   db.user
     .findOne({
@@ -41,7 +41,7 @@ router.get("/", (req, res) => {
       include: [db.drink],
     })
     .then((foundUser) => {
-      console.log("###############################################😞");
+      
 
       res.render("favorites", { faveDrinks: foundUser.drinks });
       console.log(foundUser.drinks);
@@ -50,10 +50,12 @@ router.get("/", (req, res) => {
 });
 
 //Delete a drink from my Drink (favorites)
-router.delete("/:id", (req, res) => {
-  db.drink
+router.delete("/:id", isLoggedIn, (req, res) => {
+  console.log(req.params.id)
+  //db.userdrink
+   db.drink
     .destroy({
-      where: { id: req.params.id },
+      where: { id: req.params.id }
     })
     .then((numRowsDeleted) => {
       console.log(numRowsDeleted);
@@ -65,7 +67,7 @@ router.delete("/:id", (req, res) => {
 });
 
 //route to post comments
-router.put("/:id", (req, res) => {
+router.put("/:id", isLoggedIn, (req, res) => {
   console.log("😭😭", req.params);
   console.log("😭😭", req.user.id);
   db.userdrinks

@@ -70,7 +70,7 @@ app.get('/profile', isLoggedIn, (req, res)=>{
 
 
 app.listen(process.env.PORT || 8080, ()=>{
-    console.log('youre now in port 8000')
+    console.log('youre now in port 8080')
 })
 
 

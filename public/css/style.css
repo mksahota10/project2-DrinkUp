@@ -1,7 +1,7 @@
 body {
     background-image: url("https://cdn.hipwallpaper.com/i/4/97/LmtFh9.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-repeat: no-repeat; */
+    /* background-attachment: fixed; */
     background-size:  100%;
     display:flex;
     flex-direction:column;
@@ -10,7 +10,7 @@ body {
     text-align:center;
     width:100vw;
     color:black;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(4px);
     border: 20px;
    }
 
@@ -24,18 +24,20 @@ body {
     align-items: center;
     margin: 0 auto;
     max-width: 300px;
-    border: solid 5px black;
+    border: solid 5px orange;
+    background-color: rgb(186, 238, 186);
     padding: 12px;
     text-align:center;
    }
    a{
        color:black;
    }
-   #signuppage{
+   /* #signuppage{
     text-align: left;
-    margin-right: 1200px;
+    margin-left: -50vw;
+
     
-   }
+   } */
 
    #title{
     font-family: Chalkduster, fantasy;
@@ -58,38 +60,98 @@ body {
     width: 100%;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 2px solid rgb(66, 191, 240);
+    border: 1px solid orange;
+
+   }
+   #seecomment{
+    font-family: Chalkduster, fantasy;
+
    }
    
    #fav{
     font-family: Chalkduster, fantasy;
    }
+   #review{
+    font-family: Chalkduster, fantasy;
+   }
+   #sub-main{
+    font-family: Chalkduster, fantasy;
+    margin: 0 auto;
+    max-width: 300px;
+    border: solid 5px orange;
+    padding: 12px;
+    background-color:  rgb(255, 255, 255);
+    display:flex;
+    flex-wrap: wrap;
+
+   }
+
+   #auth-password{
+    width: 100%;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid orange;
+    background-color:white
+  
+   }
+
+   #auth-email{
+    width: 100%;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid orange;
+    background-color: white;
+   }
 
    #ingredients{
-  margin: 0 auto;
-  max-width: 300px;
-  border: solid 5px black;
-  padding: 12px;
+    margin: 0 auto;
+    max-width: 300px;
+    border: solid 5px orange;
+    padding: 12px;
+    background-color: rgb(240, 240, 240);
+    font-family: Chalkduster, fantasy;
 }
 #drink{
   margin: 0 auto;
   max-width: 300px;
-  border: solid 5px black;
+  border: solid 5px orange;
   padding: 12px;
-
-}
-.button-three {
+  background-color:  rgb(247, 247, 247);
   font-family: Chalkduster, fantasy;
+  display:flex;
+  flex-wrap: wrap;
+  
+    }
+    #comment{
+      margin: 0 auto;
+      max-width: 300px;
+      border: solid 5px orange;
+      padding: 12px;
+      background-color:  rgb(255, 255, 255);
+      font-family: Chalkduster, fantasy;
+      display:flex;
+      flex-wrap: wrap;
+
+    }
+
+ 
+
+.button-three {
+  font-family: Chalkduster, fantasy, bold;
   position: relative;
-  background-color: #4CAF50;
-  border: none;
-  padding: 0px;
-  width: 100px;
+  background-color: #4d9b19;
+  color: white;
+  border: 2px solid orange;
+  padding: 5px;
+  width: 150px;
+  height: 30px;
   text-align: center;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   text-decoration: none;
   overflow: hidden;
+  opacity: 0.75;
+  filter: alpha(opacity=80)
 }
 
 .button-three:hover{
@@ -100,7 +162,7 @@ body {
 
 .button-three:after {
   content: "";
-  background: #4CAF50;
+  background: #f3f3f3;
   display: block;
   position: absolute;
   padding-top: 0;
@@ -118,40 +180,130 @@ body {
   transition: 0s
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #4CAF50;
-  width: 100px;
-  height:100px;
-}
-
-li {
-  float: left;
-  border-right:0px solid #4CAF50;
-}
-
-li:last-child {
-  border-right: none;
-}
-
-li a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 10px 10px;
-  text-decoration: none;
-  font-family: Chalkduster, fantasy;
-}
 
 h2{
   font-family: Chalkduster, fantasy;
 }
+h1{
+  font-family: Chalkduster, fantasy;
+}
+
+
+@media screen and (min-width: 100px) and (max-width: 480px) { 
+
+html{
+  overflow: hidden;
+}
+
+
+
+  
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
