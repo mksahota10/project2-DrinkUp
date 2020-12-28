@@ -20,14 +20,27 @@ body {
    }
 
    #logindetails{
-    color:black;
+    color: black;
     align-items: center;
     margin: 0 auto;
     max-width: 300px;
     border: solid 5px orange;
-    background-color: rgb(186, 238, 186);
+    background-color: #fafafa;
     padding: 12px;
     text-align:center;
+   }
+
+   #signupdiv{
+    color: black;
+    align-items: center;
+    width: 250px;
+    /* margin: 0 auto; */
+    max-width: 400px;
+    border: solid 5px orange;
+    background-color: #fafafa;
+    padding: 12px;
+    text-align:center;
+    font-family: Chalkduster, fantasy;
    }
    a{
        color:black;
@@ -56,16 +69,14 @@ body {
     font-family: Chalkduster, fantasy;
      font-size: 20px;
    }
-   .input{
+   /* .input{
     width: 100%;
     margin: 8px 0;
     box-sizing: border-box;
     border: 1px solid orange;
-
-   }
+   } */
    #seecomment{
     font-family: Chalkduster, fantasy;
-
    }
    
    #fav{
@@ -74,6 +85,7 @@ body {
    #review{
     font-family: Chalkduster, fantasy;
    }
+   
    #sub-main{
     font-family: Chalkduster, fantasy;
     margin: 0 auto;
