@@ -3,7 +3,7 @@
  <%faveDrinks.forEach(function(drink){ %>
 
     <p  id="ingredients">
-          <b>Drink:</b>
+          Drink:
           <%=drink.name%>
           <br>
           <br>
@@ -11,16 +11,14 @@
           <%=drink.ingredients%>
            <br>
            <br>
-           
-           <br>
-
           <b>How to make:</b> 
           <%=drink.instructions%>
           <br>
           <br>
           <img src="<%=drink.picture%>"width="300">
-          </p>
+          
           <br>
+          <div id="action">
           <form method="POST" action="/favorites/<%=drink.id%>/?_method=PUT">
           <label for="description" id="review">Review</label>
           <br>
@@ -33,21 +31,20 @@
           <br>
           <br>
           </form>
+
           <form method="POST" action="/favorites/<%=drink.id%>/?_method=DELETE">
             <input id="delete" type="submit" class="button-three" value="DELETE">
-          <!-- <button id="delete" type="submit" >DELETE</button> -->
-
-        <!-- <input type="hidden" value="<%=drink.id%>"> -->
             </form>
+          </div>
             
            
-        </p>
+        
         <%})%>
         <a href="http://localhost:8080/">
           <div class="sub-main">
             <button class="button-three">Find More Drinks</p> 
           </a>
-        <br>
+        </div>
 
     
 

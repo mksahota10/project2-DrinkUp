@@ -2,25 +2,23 @@
 
 <% drinks.forEach(function(drink){ %>
 
-
-    
 <div id="drink">
-        Drink:
+       <div id="font"> Drink </div>
         <%=drink.strDrink%>
         <br>
         <br>
         <h2><img src='<%=drink.strDrinkThumb%>' width="300"></h2>
         <br>
         <br>
-        Glass:
+        <div id="font"> Glass </div>
         <%=drink.strGlass%>
         <br> 
         <br>
-        Ingredients: 
+        <div id="font"> Ingredients </div> 
         <%=drink.strIngredients%>
         <br>
         <br>
-        Instructions:
+        <div id="font"> Instructions </div>
         <%=drink.strInstructions%>
 </div>
         <br>

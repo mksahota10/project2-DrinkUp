@@ -1,25 +1,37 @@
-body {
+body{
     background-image: url("https://cdn.hipwallpaper.com/i/4/97/LmtFh9.jpg");
     /* background-repeat: no-repeat; */
     /* background-attachment: fixed; */
     background-size:  100%;
-    display:flex;
-    flex-direction:column;
+    
+     display:flex; 
+    flex-direction:column; 
     justify-content: space-between;
     align-items: center;
     text-align:center;
     width:100vw;
     color:black;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(5px);
     border: 20px;
-   }
+}
 
-   #login{
+#login{
     font-size: 30px;
     font-family: Chalkduster, fantasy;
-   }
+}
 
-   #logindetails{
+#titlefilter{
+    width: 500px;
+    padding: 10px 5px;
+    float: left;
+    color: #ccc;
+    border: 0;
+    background: transparent;
+    border-radius: 3px 0 0 3px;
+}
+   
+
+#logindetails{
     color: black;
     align-items: center;
     margin: 0 auto;
@@ -28,9 +40,9 @@ body {
     background-color: #fafafa;
     padding: 12px;
     text-align:center;
-   }
+}
 
-   #signupdiv{
+#signupdiv{
     color: black;
     align-items: center;
     width: 250px;
@@ -41,10 +53,10 @@ body {
     padding: 12px;
     text-align:center;
     font-family: Chalkduster, fantasy;
-   }
-   a{
-       color:black;
-   }
+}
+a{
+  color:black;
+}
    /* #signuppage{
     text-align: left;
     margin-left: -50vw;
@@ -52,41 +64,44 @@ body {
     
    } */
 
-   #title{
+#title{
     font-family: Chalkduster, fantasy;
     font-size:60px;
     margin-top:75px;
-   }
+}
 
 
-   #question{
+#question{
     font-family: Chalkduster, fantasy;
     font-size: 30px; 
     font-weight: 900;
-   }
-
-   .type{
+}
+.type{
     font-family: Chalkduster, fantasy;
      font-size: 20px;
-   }
+}
    /* .input{
     width: 100%;
     margin: 8px 0;
     box-sizing: border-box;
     border: 1px solid orange;
    } */
-   #seecomment{
+#seecomment{
     font-family: Chalkduster, fantasy;
-   }
+}
+#fav{
+    font-family: Chalkduster, fantasy;
+}
+#review{
+    font-family: Chalkduster, fantasy;
+}
+#font{
+     font-size: 20px;
+     text-align: center;
+     text-decoration: underline;
+}
    
-   #fav{
-    font-family: Chalkduster, fantasy;
-   }
-   #review{
-    font-family: Chalkduster, fantasy;
-   }
-   
-   #sub-main{
+#sub-main{
     font-family: Chalkduster, fantasy;
     margin: 0 auto;
     max-width: 300px;
@@ -94,29 +109,27 @@ body {
     padding: 12px;
     background-color:  rgb(255, 255, 255);
     display:flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+}
 
-   }
-
-   #auth-password{
+#auth-password{
     width: 100%;
     margin: 8px 0;
     box-sizing: border-box;
     border: 2px solid orange;
     background-color:white
-  
-   }
+  }
 
-   #auth-email{
+#auth-email{
     width: 100%;
     margin: 8px 0;
     box-sizing: border-box;
     border: 2px solid orange;
     background-color: white;
-   }
+}
 
-   #ingredients{
-    margin: 0 auto;
+#ingredients{
+    /* margin: 0 auto; */
     max-width: 300px;
     border: solid 5px orange;
     padding: 12px;
@@ -124,40 +137,56 @@ body {
     font-family: Chalkduster, fantasy;
 }
 #drink{
-  margin: 0 auto;
+  margin: 0 auto; 
   max-width: 300px;
   border: solid 5px orange;
   padding: 12px;
   background-color:  rgb(247, 247, 247);
   font-family: Chalkduster, fantasy;
-  display:flex;
-  flex-wrap: wrap;
+  /* flex-flow: row;  */
+   display:flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  flex-direction:column; 
+}
   
-    }
-    #comment{
-      margin: 0 auto;
+#comment{
+      /* margin: 0 auto; */
       max-width: 300px;
-      border: solid 5px orange;
       padding: 12px;
       background-color:  rgb(255, 255, 255);
       font-family: Chalkduster, fantasy;
-      display:flex;
+      /* display:flex;
       flex-wrap: wrap;
+      flex-direction:column; */
+}
 
-    }
+  #action{
+    margin: 0 auto; 
+    max-width: 300px;
+    border: solid 5px orange;
+    padding: 12px;
+    background-color:  rgb(247, 247, 247);
+    font-family: Chalkduster, fantasy;
+    /* flex-flow: row;  */
+    display:flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    flex-direction:column; 
+}
 
  
 
 .button-three {
   font-family: Chalkduster, fantasy, bold;
-  position: relative;
+  /* position: relative; */
   background-color: #4d9b19;
   color: white;
   border: 2px solid orange;
   padding: 5px;
   width: 150px;
   height: 30px;
-  text-align: center;
+  /* text-align: center; */
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   text-decoration: none;
@@ -175,12 +204,12 @@ body {
 .button-three:after {
   content: "";
   background: #f3f3f3;
-  display: block;
-  position: absolute;
-  padding-top: 0;
+  /* display: block; */
+  /* position: absolute; */
+  /* padding-top: 0;
   padding-left: 350%;
-  margin-left: -20px !important;
-  margin-top: -120%;
+  margin-left: -20px !important; */
+  /* margin-top: -120%; */
   opacity: 0;
   transition: all 0.8s
 }
